@@ -18,10 +18,11 @@ To install:
 * Restart Domoticz.
 
 In the web UI, navigate to the Hardware page.  In the hardware dropdown there will be an entry called "Raspberry Pi GPIO".
-Allow New Hardware Devices in the Setup=>Settings=>System
-Add a new Hardware with this type (Raspberry Pi GPIO)
-This will create the new(s) device(s)
-Go to the Setup=>Devices , you will be able to see the new (not used) devices and can add them to the Switches Page.
+* Allow New Hardware Devices in the Setup=>Settings=>System Page
+* Add a new Hardware with this type (Raspberry Pi GPIO) and setup your gpio configuration. Click 'Add'
+* This will create the new(s) device(s)
+* Go to the Setup=>Devices. You will be able to see the new (not used) devices and can add them to the Switches Page.
+
 That's all!
 
 ## Updating
