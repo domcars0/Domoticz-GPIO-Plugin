@@ -30,7 +30,7 @@ To update:
 
 | Field | Information|
 | ----- | ---------- |
-| Output Pins | Comma delimited list of output (relay) pins. Format is pin number colon NO or NC or TO colon 0 or 1 (e.g 39:TO:1) |
+| Output Pins | Comma delimited list of output (relay) pins. Format is pin number colon NO or NC or TO colon 0 or 1 (e.g 16:TO:1 will create an On/Off Button (TO), active_low (1) on GPIO pin 16 (GPIO23 on a Pi3B ) |
 | Input Pins | Comma delimited list of board pin numbers (1-40) to check for input |
 | Switch Debounce | Time (ms) between valid switch presses, prevents multi reports of events |
 | Heartbeat Frequency | Determines how often Input Pins are checked for values |
