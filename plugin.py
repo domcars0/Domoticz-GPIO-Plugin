@@ -15,6 +15,7 @@
             <li style="line-height:normal">Heartbeat Frequency - Determines how often Input Pins are checked for values</li>
             <li style="line-height:normal">Debug - When true the logging level will be much higher to aid with troubleshooting</li>
         </ul>
+		To delete a device created by this plugin just delete the ouput/input pins in the comma separated list.
     </description>
     <params>
         <param field="Mode1" label="Output Pins" width="400px"/>
@@ -82,6 +83,7 @@ class BasePlugin:
 		if (len(Parameters["Mode1"]) > 0):
 			try:
 				outputPins = Parameters["Mode1"].split(',')
+				ToDelete=[]
 				for pin in outputPins:
 					items = pin.split(':')
 					pinNo = int(items[0])
@@ -96,7 +98,12 @@ class BasePlugin:
 						ActiveLow[pinNo] = int(items[2])
 
 					UpdateDevice(pinNo, GPIO.input(pinNo), "", 0)
-					Domoticz.Log(" Active high/low device :"+items[0]+", value = "+str(ActiveLow[pinNo]))
+				for device in Devices:
+					if not (device in ActiveLow):
+						Domoticz.Log(Devices[device].Name+" has been deleted.")
+						ToDelete.append(device)
+				for device in ToDelete:
+						Devices[device].Delete()
 
 			except Exception as inst:
 				Domoticz.Error("Exception in onStart, processing Output Pins")

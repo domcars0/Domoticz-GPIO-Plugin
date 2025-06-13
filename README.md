@@ -42,7 +42,8 @@ To update:
 | Heartbeat Frequency | Determines how often Input Pins are checked for values |
 | Debug | When true the logging level will be much higher to aid with troubleshooting |
 
-Notes : If you want to change the Type of an output button created by the plugin use the Device setup button (change it in the plugin will do nothing)
+Notes : If you want to change the Type of an output button created by the plugin use the Device setup button (change it in the plugin will do nothing).
+Notes 2: To remove a device remove his pin number in the comma separated list of inputs or ouputs. Cause if you remove it via the DZ Switches page, the plugin will recreate it on the next start.
 
 ## Change log
 
