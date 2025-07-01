@@ -144,10 +144,10 @@ class BasePlugin:
 
 	def onStop(self):
 		try:
-        		GPIO.cleanup()
-        		Domoticz.Log("GPIO cleanup effectué lors de l'arrêt du plugin.")
-    		except Exception as e:
-        		Domoticz.Error("Erreur lors du nettoyage GPIO : " + str(e))
+			GPIO.cleanup()
+			Domoticz.Log("GPIO cleanup effectué lors de l'arrêt du plugin.")
+		except Exception as e:
+			Domoticz.Error("Erreur lors du nettoyage GPIO : " + str(e))
 			Domoticz.Debug("onStop called")
 
 	def onHeartbeat(self):
