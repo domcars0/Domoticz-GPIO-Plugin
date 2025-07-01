@@ -143,8 +143,12 @@ class BasePlugin:
 		UpdateDevice(Unit, GPIO.input(Unit), Command, 0)
 
 	def onStop(self):
-		Domoticz.Debug("onStop called")
-		GPIO.cleanup()
+		try:
+        		GPIO.cleanup()
+        		Domoticz.Log("GPIO cleanup effectué lors de l'arrêt du plugin.")
+    		except Exception as e:
+        		Domoticz.Error("Erreur lors du nettoyage GPIO : " + str(e))
+			Domoticz.Debug("onStop called")
 
 	def onHeartbeat(self):
 		Domoticz.Debug("onHeartbeat called")
@@ -155,6 +159,10 @@ _plugin = BasePlugin()
 def onStart():
 	global _plugin
 	_plugin.onStart()
+
+def onStop():
+	global _plugin
+	_plugin.onStop()
 
 def onConnect(Connection, Status, Description):
 	global _plugin
